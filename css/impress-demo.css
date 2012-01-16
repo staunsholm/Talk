@@ -132,15 +132,22 @@ a:hover {
 #overview {
     z-index: -1;
     padding: 0;
+    opacity: 0;
 }
 
 /* on overview step everything is visible */
 
-#impress.step-overview .step {
-    opacity: 1;
-    cursor: pointer;
+#links {
+    opacity: 0;
 }
 
+#impress.step-links #links {
+    opacity: 1;
+}
+
+#impress.step-overview #overview {
+    opacity: 1;
+}
 
 /* IMPRESS NOT SUPPORTED STYLES */
 
@@ -186,6 +193,11 @@ a:hover {
     white-space: nowrap;
 }
 
+.justify.sub
+{
+    width: 740px;
+}
+
 #performance5
 {
     border: 2px dashed #666;
@@ -195,4 +207,12 @@ a:hover {
 #performance5 img
 {
     width: 740px;
+}
+
+#links a
+{
+    display: inline-block;
+    width: 780px;
+    margin: 5px 0 15px 0;
+    padding: 10px 0;
 }
