@@ -198,6 +198,11 @@ a:hover {
     width: 740px;
 }
 
+.justify q
+{
+    display: none;
+}
+
 #performance5
 {
     border: 2px dashed #666;

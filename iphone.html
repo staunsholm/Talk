@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iPhone.Zepto</title>
+    <link href="css/iphone.css" media="screen" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+</head>
+<body>
+<section id="menu">
+    <div class="toolbar">
+        <h1>Stenalder Sites</h1>
+    </div>
+    <section>
+        <h2>Keywords</h2>
+        <div id="keywords">
+saflkskljh sdfkljh sdfkljh sdhkjsdfkshlkjh.
+        </div>
+    </section>
+</section>
+<script src="js/src/zepto.js"></script>
+<script src="js/src/event.js"></script>
+<script src="js/src/touch.js"></script>
+<script src="http://192.168.0.4:8007/socket.io/socket.io.js"></script>
+
+<script>
+    $(document).ready(function ()
+    {
+        var activate = ('createTouch' in document) ? 'touchstart' : 'click';
+
+        $("body > section").first().addClass("current");
+
+        var keywords = document.getElementById('keywords');
+
+        var body = $(document);
+        body.swipeLeft(function ()
+        {
+            socket.emit('swipeLeft');
+        });
+        body.swipeRight(function ()
+        {
+            socket.emit('swipeRight');
+        });
+
+        var socket = io.connect('http://192.168.0.4:8007');
+        socket.on('connect', function (data)
+        {
+            console.log(data);
+        });
+        socket.on('select', function (data)
+        {
+            keywords.innerHTML = data.info;
+        });
+    });
+</script>
+</body>
+</html>
