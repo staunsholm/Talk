@@ -1,1 +1,6 @@
-This file was created by JetBrains WebStorm 3.0.1 for binding GitHub repository
+This is the slides from a talk I did on Single Page Sites. Based on impress.js.
+
+Added some extra features for font scaling and a node.js based server for controlling the slideshow via an iPhone.
+Also, the phone displays notes that are hidden from the presentation.
+
+Mkkl.
