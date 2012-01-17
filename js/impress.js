@@ -111,21 +111,28 @@
             ( ua.search(/(iphone)|(ipod)|(ipad)|(android)/) == -1 );
 
     // remote control
-    var socket = io.connect('http://localhost:8008');
-    socket.on('connect', function (data)
+    var socket;
+    if (typeof(io) !== "undefined")
     {
-        console.log('connect', data);
-    });
-    socket.on('swipeLeft', function (data)
+        socket = io.connect('http://localhost:8008');
+    }
+    if (socket)
     {
-        console.log('swipeLeft');
-        select(nextSlide());
-    });
-    socket.on('swipeRight', function (data)
-    {
-        console.log('swipeRight');
-        select(prevSlide());
-    });
+        socket.on('connect', function (data)
+        {
+            console.log('connect', data);
+        });
+        socket.on('swipeLeft', function (data)
+        {
+            console.log('swipeLeft');
+            select(nextSlide());
+        });
+        socket.on('swipeRight', function (data)
+        {
+            console.log('swipeRight');
+            select(prevSlide());
+        });
+    }
 
     // DOM ELEMENTS
 
