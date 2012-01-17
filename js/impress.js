@@ -111,7 +111,7 @@
             ( ua.search(/(iphone)|(ipod)|(ipad)|(android)/) == -1 );
 
     // remote control
-    var socket = io.connect('http://192.168.0.4:8008');
+    var socket = io.connect('http://localhost:8008');
     socket.on('connect', function (data)
     {
         console.log('connect', data);
@@ -119,12 +119,12 @@
     socket.on('swipeLeft', function (data)
     {
         console.log('swipeLeft');
-        select(prevSlide());
+        select(nextSlide());
     });
     socket.on('swipeRight', function (data)
     {
         console.log('swipeRight');
-        select(nextSlide());
+        select(prevSlide());
     });
 
     // DOM ELEMENTS

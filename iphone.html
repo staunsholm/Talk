@@ -15,14 +15,14 @@
     <section>
         <h2>Keywords</h2>
         <div id="keywords">
-saflkskljh sdfkljh sdfkljh sdhkjsdfkshlkjh.
+
         </div>
     </section>
 </section>
 <script src="js/src/zepto.js"></script>
 <script src="js/src/event.js"></script>
 <script src="js/src/touch.js"></script>
-<script src="http://192.168.0.4:8007/socket.io/socket.io.js"></script>
+<script src="js/socket.io.js"></script>
 
 <script>
     $(document).ready(function ()
@@ -43,10 +43,10 @@ saflkskljh sdfkljh sdfkljh sdhkjsdfkshlkjh.
             socket.emit('swipeRight');
         });
 
-        var socket = io.connect('http://192.168.0.4:8007');
+        var socket = io.connect('http://' + location.hostname + ':8007');
         socket.on('connect', function (data)
         {
-            console.log(data);
+            keywords.innerHTML = "Connected";
         });
         socket.on('select', function (data)
         {
